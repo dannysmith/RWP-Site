@@ -1,16 +1,20 @@
 class SessionsController < ApplicationController
-  def new
-  end
   
   def create
     user = User.authenticate(params[:login], params[:password])
     if user
       session[:user_id] = user.id
-      flash[:notice] = "Logged in successfully."
+      user.number_of_logins += 1; user.save!
+
+      if user.number_of_logins < 2
+        flash[:notice] = "Welcome to RWP! You can now browse our site for goodies."
+      else
+        flash[:notice] = "You are now logged in."
+      end
       redirect_to root_url
     else
-      flash.now[:error] = "Invalid login or password."
-      render :action => 'new'
+      flash.now[:error] = "Sorry, Invalid login or password."
+      render :new
     end
   end
   

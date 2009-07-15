@@ -7,11 +7,30 @@
     = yield(:head)
   %body
     #container
-      - flash.each do |name, msg|
-      = content_tag :div, msg, :id => "flash_#{name}"
-      - end
-      - if show_title?
-      %h1
-        = h yield(:title)
-      - end
-      = yield
+      #header
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
+
+        - if show_title?
+          %h1
+            = h(yield(:title))
+        
+        = link_to "Home", root_path
+        
+        - if logged_in?
+          %a{:href => "/logout"} Logout
+          %a{:href => "/account"} Account
+        -else
+          %a{:href => "/login"} Log In
+          
+        - if logged_in_as_admin?
+          %a{:href => "/users"} Users
+          %a{:href => "/orders"} Orders
+          %a{:href => "/edit_css"} CSS
+
+
+      #content
+        = yield
+      #sidebar
+      #footer
+        (c) Copyright 2009 RWP Group. All Rights Reserved!

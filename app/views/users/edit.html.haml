@@ -1,0 +1,64 @@
+- title "Account"
+%p
+  Here you can edit your personal information.
+
+- form_for @user do |f|
+  = f.error_messages
+  %p
+    = f.submit "Save Changes"
+    
+    
+  %h5 Basic Details  
+  %p
+    = f.label :email, "Email Address"
+    = f.text_field :email
+  %p.small (please ensure that this email address is correct)
+  
+  %p
+    = f.label "Name"
+    = f.text_field :first_name
+    = f.text_field :surname
+  %p
+    = f.label :company_name, "Company"
+    = f.text_field :company_name
+  %p
+    = f.submit "Save Changes"
+    
+  %h5 Contact Details
+  %p
+    = f.label :phone, "Phone number"
+    = f.text_field :phone
+  %p
+    = f.label "Address"
+    = f.text_field :address1
+    %br
+    = f.text_field :address2
+    %br
+    = f.text_field :city
+    %br
+    = f.text_field :postcode
+    %br
+    = f.country_select :country, "United Kingdom"
+    %p
+      = f.submit "Save Changes"
+      
+      
+      
+  %p
+    %h5 Change Password
+    = f.label :password, "New Password"
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation, "Confirm Password"
+    = f.password_field :password_confirmation
+  %p
+    = f.submit "Save Changes"
+    
+  - if logged_in_as_admin? 
+    .notice
+      %h5 Access Privelages
+      %p
+        = f.label :admin, "Administrator?"
+        = f.check_box :admin
+      %p
+        = f.submit "Save Changes"

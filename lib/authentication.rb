@@ -16,7 +16,7 @@
 #   before_filter :login_required, :except => [:index, :show]
 module Authentication
   def self.included(controller)
-    controller.send :helper_method, :current_user, :logged_in?
+    controller.send :helper_method, :current_user, :logged_in?, :logged_in_as_admin?
     controller.filter_parameter_logging :password
   end
   
@@ -26,6 +26,17 @@ module Authentication
   
   def logged_in?
     current_user
+  end
+    
+  def logged_in_as_admin?
+    logged_in? ? current_user.admin? : false
+  end
+  
+  def admin_required
+    unless logged_in_as_admin?
+      flash[:error] = "You must be logged in as an administrator to do this."
+      redirect_to :back
+    end
   end
   
   def login_required
