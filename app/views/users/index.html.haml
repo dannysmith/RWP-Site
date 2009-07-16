@@ -13,18 +13,11 @@
   %tbody
     - for u in @users
       %tr
-        %td
-          = name(u)
-        %td
-          = email_link(u)
-        %td
-          = u.company_name
-        %td
-          = short_date(u.created_at)
-        %td
-          = u.number_of_logins
-        %td
-          = u.city
-        %td
-          = link_to image_tag("/images/bin.gif", :border=>0), u, :confirm => "Are you sure!\n\nTHIS CANNOT BE UNDONE!", :method => :delete
+        %td= name(u)
+        %td= email_link(u)
+        %td= u.company_name
+        %td= short_date(u.created_at)
+        %td= u.number_of_logins
+        %td= u.city
+        %td= link_to image_tag("/images/bin.gif", :border=>0), u, :confirm => "Are you sure!\n\nTHIS CANNOT BE UNDONE!", :method => :delete
           

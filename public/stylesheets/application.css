@@ -8,6 +8,9 @@ a {
   a img {
     border: none; }
 
+.small {
+  font-size: 80%; }
+
 .notice {
   background-color: #CFC;
   border: solid 1px #6C6;
