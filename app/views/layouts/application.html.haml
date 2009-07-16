@@ -16,7 +16,7 @@
             = h(yield(:title))
         
         = link_to "Home", root_path
-        
+        %a{:href => "/products"} Products
         - if logged_in?
           %a{:href => "/logout"} Logout
           %a{:href => "/account"} Account
@@ -27,6 +27,7 @@
           %a{:href => "/users"} Users
           %a{:href => "/orders"} Orders
           %a{:href => "/edit_css"} CSS
+          
 
 
       #content

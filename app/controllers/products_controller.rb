@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
+  
+  before_filter :admin_required, :except => [:index, :show]
+  
   def index
-    @products = Product.all
+    redirect_to :categories
   end
   
   def show

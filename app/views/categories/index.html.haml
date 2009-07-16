@@ -1,5 +1,8 @@
-- title "Categories"
-= link_to "New Category", new_category_path
+- title "Products"
+- if logged_in_as_admin?
+  = (link_to "Add Category", new_category_path) 
+  = (link_to "Add Product", new_product_path)
+
 %p This page lists all of our products, separated by category.
 
 - for category in @categories
@@ -7,5 +10,11 @@
   
   -if logged_in_as_admin?
     .small
-      = link_to "Edit", edit_category_path(category)
+      = link_to "Change Name", edit_category_path(category)
       = link_to "Destroy", category, :confirm => 'Are you sure?', :method => :delete
+      
+  -for product in category.products
+    - if !product.disabled || logged_in_as_admin?
+      .product_box
+        %p= link_to product.name, product
+      

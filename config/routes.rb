@@ -1,17 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :products
-
-  map.resources :categories
-
   map.root :controller => 'welcome'
 
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'
   map.connect 'account', :controller => 'users', :action => 'edit'
+  #map.connect 'products', :controller => 'categories', :action => 'index' #Maps products page onto categories.
   
   map.resources :sessions
-
+  map.resources :products
+  map.resources :categories
   map.resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

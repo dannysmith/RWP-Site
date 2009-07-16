@@ -35,7 +35,7 @@ module Authentication
   def admin_required
     unless logged_in_as_admin?
       flash[:error] = "You must be logged in as an administrator to do this."
-      redirect_to :back
+      redirect_to root_url
     end
   end
   
