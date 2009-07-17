@@ -9,10 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090717113640) do
+ActiveRecord::Schema.define(:version => 20090717152832) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "total"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders_products", :id => false, :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

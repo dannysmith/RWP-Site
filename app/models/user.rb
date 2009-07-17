@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  
+  has_many :orders
+  
+  
   # new columns need to be added here to be writable through mass assignment
   attr_accessible :username, :email, :password, :password_confirmation, :first_name, :surname, :company, :phone, :address1, :address2, :city, :postcode, :country, :admin
   
