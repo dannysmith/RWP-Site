@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
   
   before_filter :login_required, :except => [:new, :create, :destroy]
-  before_filter :admin_required, :only => :destroy
+  before_filter :admin_required, :only => [:destroy, :index]
   
   #Lists the users for administration purposes. ADMIN ONLY
   def index
     @users = User.find(:all, :order => 'surname asc')
+    respond_to do |format|
+      format.html # index.html.haml
+      format.xls  # Excel Export
+      format.xml  { render :xml => @users }
+    end
   end
   
   def show

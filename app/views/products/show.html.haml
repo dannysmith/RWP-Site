@@ -1,6 +1,9 @@
 - title @product.name
 -if logged_in_as_admin?
   .small
-    = link_to "Change Name", edit_product_path(@product)
+    = link_to "Edit Product", edit_product_path(@product)
     = link_to "Destroy", @product, :confirm => 'Are you sure?', :method => :delete
-%p=h @product.description
+#product-photo
+  = image_tag @product.photo.url(:normal)
+%p
+  =h @product.description

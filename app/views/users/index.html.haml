@@ -1,6 +1,8 @@
 - title "User List"
 %p Here you can edit your users information, delete users and export their information for use with other applications.
 
+%p= link_to 'Export to Excel', formatted_users_url(:xls)
+
 %table#userlist.tablesorter
   %thead
     %th Name
