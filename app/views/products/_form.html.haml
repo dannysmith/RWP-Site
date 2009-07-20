@@ -10,7 +10,7 @@
     %br
     = f.text_area :description
   %p
-    = image_tag @product.photo.url(:small) if @product.photo.exists?
+    =# image_tag @product.photo.url(:small) if @product.photo.exists?
     = f.file_field :photo
   %p
     = f.label :disabled, "Hide this product from end users?"
