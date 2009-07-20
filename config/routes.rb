@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'
   map.connect 'account', :controller => 'users', :action => 'edit'
-  #map.connect 'products', :controller => 'categories', :action => 'index' #Maps products page onto categories.
+  map.connect 'cart', :controller => 'cart'
   
   map.resources :sessions
   map.resources :products

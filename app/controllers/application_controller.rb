@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  #Returns the current cart or a new cart, dependant on whether the session contains one or not.
+
+  def find_cart 
+    session[:cart] ||= Cart.new 
+  end
 end

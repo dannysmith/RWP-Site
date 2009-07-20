@@ -44,4 +44,15 @@ class ProductsController < ApplicationController
     flash[:notice] = "Successfully destroyed product."
     redirect_to products_url
   end
+  
+  #Adds the product to the current cart.
+  def add_to_cart
+    product = Product.find(params[:id]) 
+    @cart = find_cart                   
+    @cart.add_product(product)
+    flash[:notice] = "Product added to your cart."
+    #Update the shopping cart total shown on the right here!
+    redirect_to product       
+  end
+  
 end

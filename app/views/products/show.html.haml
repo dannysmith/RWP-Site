@@ -7,3 +7,4 @@
   = image_tag @product.photo.url(:normal)
 %p
   =h @product.description
+  = button_to "Add to Cart", :action => :add_to_cart, :id => @product

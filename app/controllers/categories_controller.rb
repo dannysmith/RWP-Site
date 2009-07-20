@@ -44,4 +44,8 @@ class CategoriesController < ApplicationController
     flash[:notice] = "Destroyed!"
     redirect_to categories_url
   end
+  
+
+  
+  
 end
