@@ -44,13 +44,7 @@ Rails::Initializer.run do |config|
   #Use the database to store sessions.
   config.action_controller.session_store = :active_record_store 
   
-  # Your secret key for verifying cookie session data integrity.
-  # If you change this key, all old sessions will become invalid!
-  # Make sure the secret is at least 30 characters and all random, 
-  # no regular words or you'll be exposed to dictionary attacks.
+  #Email Setup for Action Mailer in seperate file for version control. - DS
+  require File.join(File.dirname(__FILE__), 'email_steup.rb')
   
-#  config.action_controller.session = {
-#    :session_key => '_depot_session',
-#    :secret      => 'f914e9b1bbdb829688de8512f...9b1810a4e238a61dfd922dc9dd62521'
-#  }
 end
