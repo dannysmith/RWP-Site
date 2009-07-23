@@ -1,0 +1,12 @@
+%table
+  %thead
+    %th Item
+    %th Price
+  %tbody
+    - for item in @cart.items
+      %tr
+        %td= h item.name
+        %td= to_price(item.price)
+    %tr.lastline
+      %td Total:
+      %td= to_price(@cart.total_price)

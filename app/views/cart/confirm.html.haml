@@ -1,0 +1,16 @@
+- title "Confirm Order"
+%p When you click "send this order", you'll be directed to a page where you can confirm your choices. After that, we'll process the order and call or email you to discuss the details. You don't have to pay anything at this point and we won't ask for your card details until we've spoken to you.
+
+- form_for current_user do |f|
+  %p
+    = current_user.phone.nil? ? f.label(:phone, "Please enter your phone number and press update") : f.label(:phone, "Please check your phone number is correct")
+
+    = f.text_field :phone
+    = f.submit "Update"
+    
+%p Please check that the items in your cart are correct. We can discuss any changes or special details when we speak to you.
+
+= render :partial => 'carttable'
+
+= button_to 'Create Order', :controller => :orders
+
