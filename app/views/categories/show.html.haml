@@ -10,4 +10,7 @@
 -for product in @category.products
   - if !product.disabled || logged_in_as_admin?
     .product_box
-      %p= link_to product.name, product
+      %p= link_to h(product.name), product
+      %p= link_to image_tag(product.photo.url(:thumb)), product
+
+.clear

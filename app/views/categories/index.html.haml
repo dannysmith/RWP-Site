@@ -6,7 +6,7 @@
 %p This page lists all of our products, separated by category.
 
 - for category in @categories
-  %h2= link_to category.name, category
+  %h2= link_to h(category.name), category
   
   -if logged_in_as_admin?
     .small
@@ -16,5 +16,7 @@
   -for product in category.products
     - if !product.disabled || logged_in_as_admin?
       .product_box
-        %p= link_to product.name, product
-      
+        %p= link_to h(product.name), product
+        %p= link_to image_tag(product.photo.url(:thumb)), product
+  .clear
+        

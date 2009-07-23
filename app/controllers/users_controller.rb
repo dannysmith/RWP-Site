@@ -28,7 +28,14 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Thank you for signing up! You are now logged in."
-      redirect_to "/account"
+      logger.debug "Before Mail"
+      debugger
+      SignupMailer.deliver_confirm(@user)
+      email = SignupMailer.deliver_confirm_to_rwp(@user)
+      logger.debug "After Mail"
+      debugger
+      #render(:text => "<pre>" + email.encoded + "</pre>") 
+      redirect_to session[:last_page_viewed] || "/account"
     else
       render :new
     end
@@ -43,7 +50,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully updated your details!"
-      redirect_to "/account"
+      redirect_to :back || "/account"
     else
       render :edit
     end
@@ -52,9 +59,8 @@ class UsersController < ApplicationController
   #Deals with destroying a user.
   def destroy
     @user = User.find(params[:id])
-    debugger
     @user.destroy
     flash[:notice] = "Successfully destroyed record for  #{@user.first_name} #{@user.surname}."
-    redirect_to :back
+    redirect_to :back || root_url
   end
 end

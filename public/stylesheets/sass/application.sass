@@ -1,9 +1,12 @@
+//Resets and general styles
+
 body
   background-color: #4B7399
   font-family: Verdana, Helvetica, Arial
-  font-size: 14px
+  font-size: 0.9em
 
 
+//General Styles
 a
   color: #0000FF
 
@@ -12,19 +15,40 @@ a
 
 .small
   font-size: 80%
-  
+
 .notice
   background-color: #CFC
   border: solid 1px #6C6
   padding: 0px 8px
   margin: 10px 0
-  
+
 .clear
   clear: both
   height: 0
   overflow: hidden
-
-
+    
+//Product Box styles
+.product_box
+  background-color: #CFC
+  border: solid 1px #6C6
+  padding: 0
+  margin: 10px 10px
+  width: 16%
+  height: 16%
+  float: left
+  
+  p
+    text-align: center
+    display: block
+    margin-left: auto
+    margin-right: auto
+  
+  a
+    text-decoration: none
+    color: #000
+    font-weight: bold
+  
+//Layout
 #container
   width: 75%
   margin: 0 auto
@@ -54,30 +78,24 @@ a
 
 
 #errorExplanation
-  width: 400px
-  border: 2px solid #CF0000
+  width: 50%
+  border: 1px solid #C66
   padding: 0px
   padding-bottom: 12px
   margin-bottom: 20px
-  background-color: #f0f0f0
+  background-color: #FCC
+  color: #333
+  text-align: center
 
   h2
-    text-align: left
-    font-weight: bold
-    padding: 5px 5px 5px 15px
-    font-size: 12px
-    margin: 0
-    background-color: #c00
-    color: #fff
+    display: none
 
   p
-    color: #333
-    margin-bottom: 0
-    padding: 8px
-
+    padding: 5px
+    
   ul
     margin: 2px 24px
+    text-align: left
 
     li
-      font-size: 12px
       list-style: disc

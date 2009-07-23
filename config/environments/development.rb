@@ -17,4 +17,4 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 #Email
-config.action_mailer.delivery_method = :smtp
+config.action_mailer.delivery_method = :test #:smtp

@@ -1,21 +1,14 @@
 class CartItem
 
-  attr_reader :product, :quantity
+  attr_reader :product, :price
   
-  def initialize(product)
+  def initialize(product, price)
     @product = product
-    @quantity = 1
+    @price = price
   end
   
-  def increment_quantity
-    @quantity += 1
+  def name
+    @product.name
   end
   
-  def title
-    @product.title
-  end
-  
-  def price
-    @product.price * @quantity
-  end
 end

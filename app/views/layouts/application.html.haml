@@ -17,6 +17,7 @@
         
         = link_to "Home", root_path
         %a{:href => "/products"} Products
+        %a{:href => "/cart"} Cart
         - if logged_in?
           %a{:href => "/logout"} Logout
           %a{:href => "/account"} Account
@@ -31,7 +32,8 @@
 
 
       #content
+        = debug :params
         = yield
       #sidebar
       #footer
-        (c) Copyright 2009 RWP Group. All Rights Reserved!
+        %p.small (c) Copyright 2009 RWP Group. All Rights Reserved!

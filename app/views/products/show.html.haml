@@ -6,5 +6,10 @@
 #product-photo
   = image_tag @product.photo.url(:normal)
 %p
-  =h @product.description
-  = button_to "Add to Cart", :action => :add_to_cart, :id => @product
+  = sanitize @product.description
+%p
+  - form_tag "add_to_cart/#{@product.id}", :action => :add_to_cart do
+    = hidden_field_tag(:price, @product.offer_price ||= 500)
+    = submit_tag "Add to Cart"
+    
+/  = button_to "Add to Cart", :action => :add_to_cart, :id => @product

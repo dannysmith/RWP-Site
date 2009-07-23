@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   
-  before_filter :admin_required, :except => [:index, :show]
+  before_filter :admin_required, :except => [:index, :show, :add_to_cart]
   
   def index
     redirect_to :categories
@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
+  rescue ActiveRecord::RecordNotFound 
+    invalid_product_call
   end
   
   def new
@@ -47,12 +49,24 @@ class ProductsController < ApplicationController
   
   #Adds the product to the current cart.
   def add_to_cart
-    product = Product.find(params[:id]) 
-    @cart = find_cart                   
-    @cart.add_product(product)
-    flash[:notice] = "Product added to your cart."
+    product = Product.find(params[:id])
+    cart_item = CartItem.new(product, params[:price])
+    @cart = find_cart
+    @cart.add_product(cart_item)
+    flash[:notice] = "#{cart_item.product.name} has been added to your cart."
     #Update the shopping cart total shown on the right here!
-    redirect_to product       
+    redirect_to product
+  rescue ActiveRecord::RecordNotFound 
+    invalid_product_call "Invalid product code! You can't ad this to the cart!"
+  
   end
+  
+  private
+  
+    def invalid_product_call(msg = "Sorry, Invalid product code!")
+      logger.error("Attempt to access invalid product #{params[:id]}") 
+      flash[:notice] = msg 
+      redirect_to :action => 'index'
+    end
   
 end

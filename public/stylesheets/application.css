@@ -1,7 +1,7 @@
 body {
   background-color: #4B7399;
   font-family: Verdana, Helvetica, Arial;
-  font-size: 14px; }
+  font-size: 0.9em; }
 
 a {
   color: #0000FF; }
@@ -21,6 +21,24 @@ a {
   clear: both;
   height: 0;
   overflow: hidden; }
+
+.product_box {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+  padding: 0;
+  margin: 10px 10px;
+  width: 16%;
+  height: 16%;
+  float: left; }
+  .product_box p {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  .product_box a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold; }
 
 #container {
   width: 75%;
@@ -46,26 +64,20 @@ a {
   display: inline; }
 
 #errorExplanation {
-  width: 400px;
-  border: 2px solid #CF0000;
+  width: 50%;
+  border: 1px solid #C66;
   padding: 0px;
   padding-bottom: 12px;
   margin-bottom: 20px;
-  background-color: #f0f0f0; }
+  background-color: #FCC;
+  color: #333;
+  text-align: center; }
   #errorExplanation h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: 0;
-    background-color: #c00;
-    color: #fff; }
+    display: none; }
   #errorExplanation p {
-    color: #333;
-    margin-bottom: 0;
-    padding: 8px; }
+    padding: 5px; }
   #errorExplanation ul {
-    margin: 2px 24px; }
+    margin: 2px 24px;
+    text-align: left; }
     #errorExplanation ul li {
-      font-size: 12px;
       list-style: disc; }

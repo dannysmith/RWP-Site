@@ -3,6 +3,9 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 
+#Specifies and Admin Email for the site
+ADMIN_EMAIL = 'danny@dasmith.co.uk'
+
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
@@ -43,8 +46,6 @@ Rails::Initializer.run do |config|
   
   #Use the database to store sessions.
   config.action_controller.session_store = :active_record_store 
-  
-  #Email Setup for Action Mailer in seperate file for version control. - DS
-  require File.join(File.dirname(__FILE__), 'email_steup.rb')
+
   
 end
