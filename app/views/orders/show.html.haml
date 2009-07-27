@@ -1,0 +1,21 @@
+- title "Order"
+
+%p
+  Your Order is currently
+  = current_status_w_date(@order)
+%p 
+  = (@order.status.name == "Awaiting Payment" || @order.status.name == "Paid") ? "The price is" : "The estimated price is"
+  = to_price(@order.total)
+
+
+/- unless @order.products.empty?
+/  %table
+/    %thead
+/      %th Product
+/    %tbody
+/      - @order.products.each do |product|
+/        %tr
+/          %td= h product.name
+/      %tr.lastline
+/        %td Total:
+/        %td= to_price(@order.total)

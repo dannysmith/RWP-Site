@@ -1,0 +1,38 @@
+%p
+  Order Status
+  = current_status_w_date(@order)
+
+  - form_for @order do |f|
+    = f.error_messages
+    %p
+      = f.label :total, "Total Price (pennies)"
+      = f.text_field :total
+      = f.submit "Save"
+      
+    %p
+      = f.label :note, "Notes"
+      = f.text_area :note
+    %p
+      = f.submit "Save"
+      
+    %p
+      = f.label :status, "Status"
+      = f.select :status, {"Awaiting Contact" => "Awaiting Contact", "Unconfirmed" => "Unconfirmed", "Price Confirmed" => "Price Confirmed", "Paid" => "Paid"}
+      = f.submit "Save"
+    
+%h4 Products
+%table
+  %thead
+    %th Product
+  %tbody
+    - @order.products.each do |product|
+      %tr
+        %td= h product.name
+    %tr.lastline
+      %td Total:
+      %td= to_price(@order.total)
+
+
+- if logged_in_as_admin?
+  %p.small
+    = button_to "Destroy this Order", @order, :confirm => 'Are you sure?', :method => :delete

@@ -6,6 +6,9 @@ RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 #Specifies and Admin Email for the site
 ADMIN_EMAIL = 'danny@dasmith.co.uk'
 
+#Specifies the Root URL or the app
+ROOT_URL = 'http://localhost:3000'
+
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 

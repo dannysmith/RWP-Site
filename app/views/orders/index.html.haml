@@ -1,0 +1,40 @@
+- title "Orders"
+
+- if logged_in_as_admin?
+  %p This is where you can administer orders.
+  %p= link_to "Create New Order", new_order_path
+  
+  %table
+    %thead
+      %th Order No
+      %th Date
+      %th User
+      %th Phone Number
+      %th Status
+
+    %tbody
+      - for order in @orders
+        %tr
+          %td= link_to order.id, edit_order_path(order)
+          %td= order.created_at.strftime('%d %m')
+          %td= h(order.user.first_name) << " " << h(order.user.surname)
+          %th= h order.user.phone
+          %th= order.status.name
+
+- else
+  %p This is where you can view your orders.
+  
+  %table
+    %thead
+      %th Order No
+      %th Date
+      %th Status
+      %th  
+
+    %tbody
+      - for order in @orders
+        %tr
+          %td= link_to order.id, order
+          %td= order.created_at.strftime('%d %b')
+          %th= current_status_w_date(order)
+          %td= link_to("Pay", order.paypal_url(orders_url)) if order.status.name == "Price Confirmed"

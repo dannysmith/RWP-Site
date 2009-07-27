@@ -5,18 +5,20 @@
 
 %p This page lists all of our products, separated by category.
 
-- for category in @categories
-  %h2= link_to h(category.name), category
-  
-  -if logged_in_as_admin?
-    .small
-      = link_to "Change Name", edit_category_path(category)
-      = link_to "Destroy", category, :confirm => 'Are you sure?', :method => :delete
-      
-  -for product in category.products
-    - if !product.disabled || logged_in_as_admin?
-      .product_box
-        %p= link_to h(product.name), product
-        %p= link_to image_tag(product.photo.url(:thumb)), product
-  .clear
-        
+- if @categories.empty?
+  %h2= link_to "Create your first category", new_category_path
+- else
+  - for category in @categories
+
+    %h2= link_to h(category.name), category
+    -if logged_in_as_admin?
+      .small
+        = link_to "Change Name", edit_category_path(category)
+        = link_to "Destroy", category, :confirm => 'Are you sure?', :method => :delete
+
+    -for product in category.products
+      - if !product.disabled || logged_in_as_admin?
+        .product_box
+          %p= link_to h(product.name), product
+          %p= link_to image_tag(product.photo.url(:thumb)), product
+.clear

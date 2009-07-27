@@ -1,0 +1,13 @@
+- title "New Order"
+
+- form_for @order do |f|
+  = f.error_messages
+  %p
+    = f.label :total, "Total Price (in pennies)"
+    = f.text_field :total
+    p
+  %p
+    = f.label :user_id, "Client"
+    = f.select(:user_id, User.all.map {|u| ["#{u.first_name} #{u.surname} (#{u.company_name})", u.id]}, :prompt => "Select a Client...")
+  %p
+    = f.submit "Create Order"

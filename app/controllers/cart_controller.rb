@@ -12,7 +12,11 @@ class CartController < ApplicationController
   end
   
   def confirm
-    #debugger
+    if find_cart.items.empty?
+      flash[:notice] = "Your cart is currently empty" 
+      redirect_to :back
+    end
+    
     unless logged_in?
       flash[:notice] = "Please login to make an order."
       session[:last_page_viewed] = request.env['REQUEST_PATH']

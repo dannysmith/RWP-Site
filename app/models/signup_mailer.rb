@@ -1,6 +1,4 @@
 class SignupMailer < ActionMailer::Base
-  
-
   def confirm(user)
     subject    'Your account at RWP has been activated'
     recipients user.email

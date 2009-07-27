@@ -19,6 +19,7 @@
         %a{:href => "/products"} Products
         %a{:href => "/cart"} Cart
         - if logged_in?
+          %a= link_to "Orders", orders_path
           %a{:href => "/logout"} Logout
           %a{:href => "/account"} Account
         -else
@@ -26,7 +27,6 @@
           
         - if logged_in_as_admin?
           %a{:href => "/users"} Users
-          %a{:href => "/orders"} Orders
           %a{:href => "/edit_css"} CSS
           
 

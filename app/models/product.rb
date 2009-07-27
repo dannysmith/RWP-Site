@@ -2,6 +2,9 @@ class Product < ActiveRecord::Base
   belongs_to :category
   has_and_belongs_to_many :orders
   
+  validates_presence_of :name, :description
+  #validates_attachment_presence :photo
+  
   has_attached_file :photo,
   :styles => {
     :thumb  => "80x80#",
