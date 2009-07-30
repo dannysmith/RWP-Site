@@ -1,6 +1,15 @@
 class PostsController < ApplicationController
+  
+  before_filter :admin_required, :except => [:index, :show]
+  
   def index
-    @posts = Post.all
+    if $site.display_blog?
+      @posts = Post.all(:order => :created_at).reverse
+      @first_post = @posts.first
+    else
+      flash[:notice] = "Sorry, our blog is currently unavailable."
+      redirect_to root_url
+    end
   end
   
   def show

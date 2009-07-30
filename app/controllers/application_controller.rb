@@ -9,8 +9,10 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
+  #This variable contains the sites options, as stored in the database.
+  $site = Site.first
+  
   #Returns the current cart or a new cart, dependant on whether the session contains one or not.
-
   def find_cart 
     session[:cart] ||= Cart.new 
   end

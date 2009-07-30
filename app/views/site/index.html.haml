@@ -1,0 +1,19 @@
+- title "Settings"
+
+-form_for $site do |f|
+  
+  %p
+    = f.label :display_blog, "Display the Blog Section to end users"
+    = f.check_box :display_blog
+  %p
+    = f.label :rss_message, "Message to display after each post in the RSS feed"
+    %br
+    = f.text_area :rss_message
+  %p
+    = f.label :new_user_message, "Message to display to new users"
+    %br
+    = f.text_area :new_user_message
+  %p
+    = f.submit "Save Settings"
+    
+  

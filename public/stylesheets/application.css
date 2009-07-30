@@ -1,3 +1,5 @@
+@import url(jquery.wysiwyg/style.css);
+@import url(tablesorter.blue/style.css);
 body {
   background-color: #4B7399;
   font-family: Verdana, Helvetica, Arial;
@@ -81,3 +83,49 @@ a {
     text-align: left; }
     #errorExplanation ul li {
       list-style: disc; }
+
+.date {
+  float: left;
+  display: block;
+  font-size: 11px;
+  text-align: center;
+  line-height: 45px;
+  width: 32px;
+  height: 45x;
+  padding-right: 20px; }
+
+.month-1 {
+  background: url(/images/jan.gif) no-repeat 0 0; }
+
+.month-2 {
+  background: url(/images/feb.gif) no-repeat 0 0; }
+
+.month-3 {
+  background: url(/images/mar.gif) no-repeat 0 0; }
+
+.month-4 {
+  background: url(/images/apr.gif) no-repeat 0 0; }
+
+.month-5 {
+  background: url(/images/may.gif) no-repeat 0 0; }
+
+.month-6 {
+  background: url(/images/jun.gif) no-repeat 0 0; }
+
+.month-7 {
+  background: url(/images/jul.gif) no-repeat 0 0; }
+
+.month-8 {
+  background: url(/images/aug.gif) no-repeat 0 0; }
+
+.month-9 {
+  background: url(/images/sep.gif) no-repeat 0 0; }
+
+.month-10 {
+  background: url(/images/oct.gif) no-repeat 0 0; }
+
+.month-11 {
+  background: url(/images/nov.gif) no-repeat 0 0; }
+
+.month-12 {
+  background: url(/images/dec.gif) no-repeat 0 0; }

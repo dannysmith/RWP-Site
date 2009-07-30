@@ -1,0 +1,15 @@
+- form_for @post, :html => { :multipart => true } do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
+    = f.label :body
+    %br
+    = f.text_area :body, :id => "wysiwyg"
+  %p
+    = image_tag @post.photo.url(:thumb) if @post.photo?
+    = f.file_field :photo
+  %p
+    = f.submit "Post to Blog"

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       user.number_of_logins += 1; user.save!
 
       if user.number_of_logins < 2
-        flash[:notice] = "Welcome to RWP! You can now browse our site for goodies."
+        flash[:notice] = "\n\n#{$site.new_user_message}"
       else
         flash[:notice] = "You are now logged in."
       end

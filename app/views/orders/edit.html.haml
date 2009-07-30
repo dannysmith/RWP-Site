@@ -1,3 +1,4 @@
+- title "Edit Order ##{@order.id}"
 %p
   Order Status
   = current_status_w_date(@order)
@@ -21,16 +22,16 @@
       = f.submit "Save"
     
 %h4 Products
-%table
+%table.tablesorter
   %thead
     %th Product
   %tbody
     - @order.products.each do |product|
       %tr
         %td= h product.name
-    %tr.lastline
-      %td Total:
-      %td= to_price(@order.total)
+%p 
+  Total:
+  = to_price(@order.total)
 
 
 - if logged_in_as_admin?

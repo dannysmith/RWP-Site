@@ -1,0 +1,18 @@
+!!! XML 
+%rss{ :version => "2.0" } 
+  %channel 
+    %title RWP Blog
+    %link= posts_url
+    %description The RWP Company Blog
+    %language en-gb
+    %pubDate= Time.now 
+    - for post in @posts
+      %item 
+        %title= h post.title
+        %description
+          = image_tag post.photo.url(:normal)
+          = sanitize post.body
+          = "<p>#{$site.rss_message}</p>"
+        %link= post_path(post)
+        %guid= post.id 
+        %pubDate= post.created_at

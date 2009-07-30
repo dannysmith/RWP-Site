@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user.username = @user.email
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "Thank you for signing up! An email confirming your details has been sent and you are now logged in."
+      flash[:notice] = "Thank you for signing up! An email confirming your details has been sent and you are now logged in.\n\n#{$site.new_user_message}"
       SignupMailer.deliver_confirm(@user)
       email = SignupMailer.deliver_confirm_to_rwp(@user)
       logger.debug "Mail has been sent"

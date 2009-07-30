@@ -1,0 +1,7 @@
+- title "Ethos"
+
+- for tagline in @taglines
+  .ethos_statement[tagline]
+    %h3= h tagline.tagline
+    %p= sanitize tagline.description
+    %p= link_to 'Edit', edit_tagline_path(tagline) if logged_in_as_admin?
