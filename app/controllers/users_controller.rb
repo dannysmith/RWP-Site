@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    redirect_to "/account"
+    redirect_to account_url
   end
   
   #Both new & create deal with adding new Users
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       email = SignupMailer.deliver_confirm_to_rwp(@user)
       logger.debug "Mail has been sent"
       #render(:text => "<pre>" + email.encoded + "</pre>") 
-      redirect_to session[:last_page_viewed] || "/account"
+      redirect_to session[:last_page_viewed] || account_url
     else
       render :new
     end
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   
   #Both edit & update deal with changing Users
   def edit
-    @edit
+    #@edit
     @user = current_user
   end
   

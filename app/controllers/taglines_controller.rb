@@ -14,7 +14,7 @@ class TaglinesController < ApplicationController
     @tagline = Tagline.find(params[:id])
     if @tagline.update_attributes(params[:tagline])
       flash[:notice] = "Successfully updated tagline."
-      redirect_to @tagline
+      redirect_to ethos_path
     else
       render :action => 'edit'
     end
