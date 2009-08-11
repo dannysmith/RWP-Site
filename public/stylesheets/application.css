@@ -5,6 +5,13 @@ body {
   font-family: Verdana, Helvetica, Arial;
   font-size: 0.9em; }
 
+textarea {
+  width: 100%; }
+
+.big {
+  font-size: 2em;
+  width: 100%; }
+
 a {
   color: #0000FF; }
   a img {

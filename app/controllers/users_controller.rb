@@ -40,7 +40,6 @@ class UsersController < ApplicationController
   
   #Both edit & update deal with changing Users
   def edit
-    #@edit
     @user = current_user
   end
   
@@ -48,7 +47,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully updated your details!"
-      redirect_to :back || "/account"
+      redirect_to :back || account_url
     else
       render :edit
     end

@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
   include Authentication
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  
+  #TODO Remove before Live:
+  before_filter :http_authenticate
+  
+  def http_authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == 'rwp' && password == 'rwp108'
+    end
+  end
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
@@ -16,5 +25,6 @@ class ApplicationController < ActionController::Base
   def find_cart 
     session[:cart] ||= Cart.new 
   end
+
 
 end

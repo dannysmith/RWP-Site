@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
 
+  #Root goes to welcome
   map.root :controller => 'welcome'
 
+  #Map together short URLs for most controllers.
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'
@@ -11,15 +13,25 @@ ActionController::Routing::Routes.draw do |map|
   map.ethos 'ethos', :controller => 'taglines'
   map.settings 'settings', :controller => 'site', :action => 'index'
   
-  map.resources :site
-  map.resources :taglines
-  map.resources :sessions
+  #Map resourcse
+  map.resources :site, :only => [:index, :edit, :update]
+  map.resources :taglines, :only => [:index, :edit, :update]
+  map.resources :sessions, :only => [:create, :destroy]
   map.resources :products
   map.resources :categories, :has_many => :products
   map.resources :users, :has_many => :orders
   map.resources :posts
   map.resources :orders
+  map.resources :pages
 
+ 
+  #Map default routes
+  map.connect ':name', :controller => 'pages', :action => 'show'
+  map.connect ':name/edit', :controller => 'pages', :action => 'edit'
+  map.connect ':name/update', :controller => 'pages', :action => 'update'
+  map.connect ':controller/:action/:id'
+  #map.connect ':controller/:action/:id.:format'
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -50,15 +62,4 @@ ActionController::Routing::Routes.draw do |map|
   #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
   #     admin.resources :products
   #   end
-
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
-
-  # See how all your routes lay out with "rake routes"
-
-  # Install the default routes as the lowest priority.
-  # Note: These default routes make all actions in every controller accessible via GET requests. You should
-  # consider removing the them or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
 end

@@ -11,4 +11,14 @@ class Post < ActiveRecord::Base
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
   :path => ":attachment/:id/:style.:extension",
   :bucket => 'rwp-website'
+  
+  #Used to parameterize the title for permalinks.
+  def to_s
+     title
+  end
+
+  def to_param
+    "#{id}-#{to_s.parameterize}"    
+  end
+   
 end

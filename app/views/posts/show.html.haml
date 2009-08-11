@@ -5,5 +5,4 @@
 
   = image_tag @post.photo.url(:normal)
   %p= sanitize @post.body
-  = link_to "Edit", edit_post_path(@post) if logged_in_as_admin?
-
+  %p.small= link_to "Edit", edit_post_path(@post) if logged_in_as_admin?

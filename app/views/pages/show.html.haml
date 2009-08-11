@@ -1,0 +1,6 @@
+- title @page.title
+
+%div{:class => @page.name}
+  = @page.content
+  
+%p.small= link_to "Edit", "/#{@page.name}/edit" if logged_in_as_admin?

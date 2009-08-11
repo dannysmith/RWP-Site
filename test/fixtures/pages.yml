@@ -1,0 +1,11 @@
+one:
+  title: MyString
+  name: MyString
+  content: MyText
+  disabled: false
+
+two:
+  title: MyString
+  name: MyString
+  content: MyText
+  disabled: false
