@@ -1,9 +1,37 @@
 @import url(jquery.wysiwyg/style.css);
 @import url(tablesorter.blue/style.css);
 body {
-  background-color: #4B7399;
+  background-color: #17103a;
   font-family: Verdana, Helvetica, Arial;
-  font-size: 0.9em; }
+  font-size: 0.9em;
+  margin: 0;
+  padding: 0; }
+  body #wrapper {
+    width: 75%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px 40px;
+    border: solid 2px #FFF;
+    border-color: #645f7b;
+    margin-top: 20px; }
+    body #wrapper #header {
+      background-color: green; }
+    body #wrapper #container {
+      background-color: yellow;
+      margin-right: -200px;
+      float: left;
+      width: 100%; }
+      body #wrapper #container #content {
+        background-color: #ffff7b;
+        margin-right: 200px; }
+    body #wrapper #sidebar {
+      float: right;
+      width: 150px;
+      border-left: solid 1px;
+      border-left-color: #645f7b;
+      background-color: red; }
+    body #wrapper #footer {
+      background-color: purple; }
 
 textarea {
   width: 100%; }
@@ -48,14 +76,6 @@ a {
     text-decoration: none;
     color: #000;
     font-weight: bold; }
-
-#container {
-  width: 75%;
-  margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px; }
 
 #flash_notice, #flash_error {
   padding: 5px 8px;

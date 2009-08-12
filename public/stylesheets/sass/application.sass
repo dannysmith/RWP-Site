@@ -1,14 +1,63 @@
-//Resets and general styles
-
 @import jquery.wysiwyg/style.css
 @import tablesorter.blue/style.css
 
-
+!darkblue = #17103A
+!white = #FFF
+!medblue = #2E2075
+!pink = #EC008C
+!lightgrey = #645F7B
+!darkgrey = #352F54
+!pooface = #17103A
+!container_width = 75%
+!sidebar_width = 150px
+//
+  *
+    :margin 0
+    :padding 0
+    :border 0
+    :outline 0
+    :font-size 100%
+    :vertical-align baseline
+  
 body
-  :background-color #4B7399
+  :background-color = !darkblue
   :font-family Verdana, Helvetica, Arial
   :font-size 0.9em
+  :margin 0
+  :padding 0
 
+  #wrapper
+    :width = !container_width
+    :margin 0 auto
+    :background-color = !white
+    :padding 20px 40px
+    :border solid 2px #FFF
+    :border-color = !lightgrey
+    :margin-top 20px
+
+    #header
+      :background-color green
+      
+    #container
+      :background-color yellow
+      :margin-right = (!sidebar_width + 50px)*-1
+      :float left
+      :width 100%
+      
+      #content
+        :background-color = yellow + !lightgrey
+        :margin-right = !sidebar_width + 50px
+      
+    #sidebar
+      :float right
+      :width = !sidebar_width
+      //:padding 20px 40px
+      :border-left solid 1px
+      :border-left-color = !lightgrey
+      :background-color red
+      
+    #footer
+      :background-color purple
 textarea
   :width 100%
 
@@ -60,13 +109,7 @@ a
     font-weight: bold
   
 //Layout
-#container
-  width: 75%
-  margin: 0 auto
-  background-color: #FFF
-  padding: 20px 40px
-  border: solid 1px black
-  margin-top: 20px
+
 
 
 #flash_notice, #flash_error
