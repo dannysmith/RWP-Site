@@ -6,4 +6,7 @@ class Site < ActiveRecord::Base
     self.pages.find(:all, :conditions => {:disabled => false})
   end
   
+  def inactive_pages
+    self.pages.find(:all, :conditions => {:disabled => true})
+  end
 end

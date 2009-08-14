@@ -1,0 +1,176 @@
+@import blueprint/reset.sass
+@import partials/base.sass
+@import blueprint
+
+// Import the non-default scaffolding module.
+@import blueprint/modules/scaffolding.sass
+@import compass/utilities/lists.sass
+@import compass/utilities/links.sass
+@import blueprint/modules/fancy_type.sass
+
+
++blueprint-scaffolding
++blueprint-utilities
++blueprint-debug
++blueprint-interaction
++blueprint-typography
+
+body
+  +fancy-type
+  :background= !darkblue
+  
+  #wrapper
+    :margin 0 auto
+    :background-color = !white
+    :border solid 2px #FFF
+    :border-color = !lightgrey
+    :text-align left
+    +container
+    :width !blueprint_container_size
+  
+  #header, #footer
+    +column(!blueprint_grid_columns)
+  
+  #navlinks
+    +inline-list
+  #header
+    
+  #container
+    +column(16)
+    
+    #content      
+  
+  #sidebar
+    :border-left solid 1px
+    :border-left-color = !lightgrey
+    +column(8, last)
+
+  #footer
+
+  form
+    +blueprint-form
+  
+    textarea
+      :width 100%
+
+    .big
+      :font-size 2em
+      :width 100%
+
+  a
+    +hover-link
+    
+    
+  //FLASHES
+
+  #flash_notice
+    +success
+
+  #flash_error
+    +error
+    
+    
+    
+    
+    
+    
+    
+    
+////////////////////////
+
+//
+  //General Styles
+  a
+    color: #0000FF
+
+    img
+      border: none
+
+  //Product Box styles
+  .product_box
+    background-color: #CFC
+    border: solid 1px #6C6
+    padding: 0
+    margin: 10px 10px
+    width: 16%
+    height: 16%
+    float: left
+
+    p
+      text-align: center
+      display: block
+      margin-left: auto
+      margin-right: auto
+
+    a
+      text-decoration: none
+      color: #000
+      font-weight: bold
+
+
+
+//Errors
+
+  .fieldWithErrors
+    display: inline
+
+  #errorExplanation
+    width: 50%
+    border: 1px solid #C66
+    padding: 0px
+    padding-bottom: 12px
+    margin-bottom: 20px
+    background-color: #FCC
+    color: #333
+    text-align: center
+
+    h2
+      display: none
+
+    p
+      padding: 5px
+
+    ul
+      margin: 2px 24px
+      text-align: left
+
+      li
+        list-style: disc
+
+
+//Blog dates
+
+  .date
+    float: left
+    display: block
+    font-size: 11px
+    text-align: center
+    line-height: 45px
+    width: 32px
+    height: 45x
+    padding-right: 20px
+
+  .month-1
+    background: url(/images/jan.gif) no-repeat 0 0
+  .month-2                                      
+    background: url(/images/feb.gif) no-repeat 0 0
+  .month-3                                      
+    background: url(/images/mar.gif) no-repeat 0 0
+  .month-4                                      
+    background: url(/images/apr.gif) no-repeat 0 0
+  .month-5                                      
+    background: url(/images/may.gif) no-repeat 0 0
+  .month-6                                      
+    background: url(/images/jun.gif) no-repeat 0 0
+  .month-7                                      
+    background: url(/images/jul.gif) no-repeat 0 0
+  .month-8                                      
+    background: url(/images/aug.gif) no-repeat 0 0
+  .month-9                                      
+    background: url(/images/sep.gif) no-repeat 0 0
+  .month-10                                      
+    background: url(/images/oct.gif) no-repeat 0 0
+  .month-11                                      
+    background: url(/images/nov.gif) no-repeat 0 0
+  .month-12                                      
+    background: url(/images/dec.gif) no-repeat 0 0
