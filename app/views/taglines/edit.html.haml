@@ -1,11 +1,11 @@
-- title "Edit ethos statement"
+- title "edit ethos statement"
 
 - form_for @tagline do |f|
   = f.error_messages
   %p
-    = f.text_field :tagline, :class => :big
+    = f.text_field :tagline, :class => :title
   %p
-    = f.text_area :description, :class => "tinymce_simple"
-  %p
+    = f.text_area :description, :class => "tinymce_simple text"
+  %p.submit
     = f.submit "Save"
 

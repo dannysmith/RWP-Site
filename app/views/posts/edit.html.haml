@@ -1,3 +1,15 @@
-- title "Edit Blog Post"
+- title "Blog - edit post"
 
-= render :partial => 'form'
+- form_for @post, :html => { :multipart => true } do |f|
+  = f.error_messages
+  %p
+    = f.text_field :title, :class => :title
+  %p
+    = f.text_area :body, :class => "tinymce"
+    
+  %fieldset.photo-edit
+    %legend= "Photo for this post"
+    = image_tag @post.photo.url(:thumb) if @post.photo?
+    = f.file_field :photo
+    
+  = f.submit "Save Changes"

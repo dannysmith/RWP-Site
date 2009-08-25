@@ -1,8 +1,11 @@
-- title @post.title
-.post
-  %div.date{:class => "month-#{@post.created_at.strftime("%m").to_i}"}
-    = @post.created_at.strftime("%d").to_i.ordinalize
+- title "Blog"
 
-  = image_tag @post.photo.url(:normal)
+.post
+  %div.date{:class => "month#{@post.created_at.strftime("%m").to_i}"}
+    = @post.created_at.strftime("%d").to_i.ordinalize
+  
+  %p.edit= link_to "Edit this post", edit_post_path(@post) if logged_in_as_admin?
+  %h1= link_to h(@post.title), post_path(@post)
+  #post-photo
+    = image_tag @post.photo.url(:normal)
   %p= sanitize @post.body
-  %p.small= link_to "Edit", edit_post_path(@post) if logged_in_as_admin?

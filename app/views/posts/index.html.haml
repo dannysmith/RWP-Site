@@ -1,26 +1,30 @@
 - title "Blog"
 
-%p= link_to "RSS Feed", blog_url(:rss)
-
-- unless @first_post.nil?
-  .post.firstpost
-    %div.date{:class => "month-#{@first_post.created_at.strftime("%m").to_i}"}
-      = @first_post.created_at.strftime("%d").to_i.ordinalize
-    %h3= link_to h(@first_post.title), post_path(@first_post)
-    = image_tag @first_post.photo.url(:normal)
-    %p= sanitize @first_post.body
-    = link_to "Edit this post", edit_post_path(@first_post)
-    
-- for post in @posts[1..-1]
-  .post
-    %div.date{:class => "month-#{post.created_at.strftime("%m").to_i}"}
-      = post.created_at.strftime("%d").to_i.ordinalize
+- content_for(:admin_links) do
+  %li= link_to "New Blog Post", new_post_path
       
-    %h3= link_to h(post.title), post_path(post)
-    = image_tag post.photo.url(:normal)
-    %p= sanitize post.body
-    = link_to "Edit", edit_post_path(post) if logged_in_as_admin?
+#blogposts
+  %p= link_to "RSS Feed", blog_url(:rss)
+
+  - unless @first_post.nil?
+    .post.firstpost
+      %div.date{:class => "month#{@first_post.created_at.strftime("%m").to_i}"}
+        = @first_post.created_at.strftime("%d").to_i.ordinalize
+        
+      %p.edit= link_to "Edit this post", edit_post_path(@first_post) if logged_in_as_admin?
+      %h3= link_to h(@first_post.title), post_path(@first_post)
+      #post-photo
+        = image_tag @first_post.photo.url(:normal)
+      %p= sanitize @first_post.body
+      
     
-- if logged_in_as_admin?
-  %p
-    = link_to "New Post", new_post_path
+  - for post in @posts[1..-1]
+    .post
+      %div.date{:class => "month#{post.created_at.strftime("%m").to_i}"}
+        = post.created_at.strftime("%d").to_i.ordinalize
+      
+      %p.edit= link_to "Edit this post", edit_post_path(post) if logged_in_as_admin?
+      %h3= link_to h(post.title), post_path(post)
+      #post-photo
+        = image_tag post.photo.url(:normal)
+      %p= sanitize post.body

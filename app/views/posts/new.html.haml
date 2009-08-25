@@ -1,4 +1,13 @@
-- title "Create a new Blog Post"
+- title "Blog - new post"
 
-= render :partial => 'form'
+- form_for @post, :html => { :multipart => true } do |f|
+  = f.error_messages
+  %p
+    = f.text_field :title, :class => :title
+  %p
+    = f.file_field :photo
+  %p
+    = f.text_area :body, :class => "tinymce"
+  %p
+    = f.submit "Post to Blog!"
 

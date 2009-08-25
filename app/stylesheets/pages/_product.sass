@@ -1,0 +1,30 @@
+//Product View Page style
+#productpage
+  #product-photo
+    +column(7)
+    img
+      +float-left
+  p.edit
+    +float-right
+    
+#editproductpage
+  form
+    +no-labels
+  //Overrides +nolabels mixin.
+  .show-label
+    :display inline
+    :float none
+    :width default
+    :margin-right 0
+    :padding-top 0
+    :text-align left
+
+.category
+  +pad(2)  
+  h2
+    a
+      +hover-link
+      :font-variant small-caps
+      :letter-spacing 1px
+      :text-transform lowercase
+      :font-size 1.4em

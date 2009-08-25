@@ -7,7 +7,6 @@ class PagesController < ApplicationController
   
   def update
     @page = Page.find(params[:id])
-    debugger
     if @page.update_attributes(params[:page])
       flash[:notice] = "Updated #{@page.title} page, OK."
       redirect_to "/#{@page.name}"

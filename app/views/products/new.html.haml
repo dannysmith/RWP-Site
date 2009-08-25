@@ -1,3 +1,21 @@
-- title "Edit Product"
-= render :partial => 'form'
+- title "Products"
 
+#editproductpage
+  - form_for @product, :html => { :multipart => true } do |f|
+    = f.error_messages
+
+    = f.label :name
+    = f.text_field :name, :class => :title
+    %br
+    = f.label :disabled, "Hide this product from end users?", :class => "show-label"
+    = f.check_box :disabled
+    %br
+    =f.label :photo, "Choose a photo"
+    = f.file_field :photo
+    %br
+    =f.label :category_id, "Choose a category", :class => "show-label"
+    = f.collection_select :category_id, Category.find(:all), :id, :name, :prompt => "Choose a category..."
+    = f.label :description, "Product Description"
+    = f.text_area :description, :class => "tinymce"
+
+    = f.submit "Create Product Record"

@@ -1,23 +1,27 @@
 - title "Sign up"
-%p
-  Already have an account?
-  = link_to "Log in", login_path
 
-- form_for @user do |f|
-  = f.error_messages
-  %p
-    = f.label :first_name, "Name"
-    = f.text_field :first_name
-    = f.label :first_name, "Surname", :style => { "display:" => :none }
-    = f.text_field :surname
-  %p
-    = f.label :email, "Email Address"
-    = f.text_field :email
-  %p
-    = f.label :password
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation, "Confirm Password"
-    = f.password_field :password_confirmation
-  %p
-    = f.submit "Sign up"
+#signup_form
+  - form_for @user do |f|
+    = f.error_messages
+    %fieldset
+      %legend Sign Up
+      %p
+        = f.label :first_name, "Name"
+        = f.text_field :first_name, :class => :text, :size => 20
+        = f.label :first_name, "Surname", :style => { "display:" => :none }
+        = f.text_field :surname, :class => :text, :size => 20
+      %p
+        = f.label :email, "Email Address"
+        = f.text_field :email, :class => :text, :size => 42
+      %p
+        = f.label :password
+        = f.password_field :password, :class => :text, :size => 42
+      %p
+        = f.label :password_confirmation, "Confirm Password"
+        = f.password_field :password_confirmation, :class => :text, :size => 42
+      %p.submit
+        = f.submit "Sign up"
+      %p.small.right
+        If you already have an account you should 
+        = link_to "Log in", login_path
+        instead.

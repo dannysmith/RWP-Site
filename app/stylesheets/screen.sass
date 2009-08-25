@@ -1,176 +1,186 @@
 @import blueprint/reset.sass
 @import partials/base.sass
 @import blueprint
-
-// Import the non-default scaffolding module.
-@import blueprint/modules/scaffolding.sass
-@import compass/utilities/lists.sass
-@import compass/utilities/links.sass
+@import blueprint/modules/grid.sass
 @import blueprint/modules/fancy_type.sass
+@import blueprint/modules/form.sass
+@import compass.sass
 
+//Import the individual pages styling.
+@import pages
 
-+blueprint-scaffolding
-+blueprint-utilities
-+blueprint-debug
-+blueprint-interaction
+//Include General Mixins
 +blueprint-typography
 
+//Part of fancy-type mixin
+.caps
+  +caps
+.dquo
+  +dquo
+.alt
+  +alt
+//Layout Styling  
 body
-  +fancy-type
+  +blueprint-utilities
+  +blueprint-debug
+  +blueprint-interaction
   :background= !darkblue
+  :line-height= !line_height
+
+#wrapper
+  +container
+  :margin 0 auto
+  //:padding 10px
+  :background-color= !white
+  :border solid 1px #ccc
+  :border-color= !lightgrey
+  :text-align left
   
-  #wrapper
-    :margin 0 auto
-    :background-color = !white
-    :border solid 2px #FFF
-    :border-color = !lightgrey
-    :text-align left
-    +container
-    :width !blueprint_container_size
-  
-  #header, #footer
-    +column(!blueprint_grid_columns)
-  
-  #navlinks
-    +inline-list
-  #header
+#header
+  +column(24)
+  +pad
+  h1
+    :size 3em
+    +pad(2)
     
-  #container
-    +column(16)
+#navlinks
+  +bar-delimited-list
+  +float-right
+  +append(1)
+  a
+    +hover-link
+    :font-size 1.2em
+    :color= !pink
     
-    #content      
-  
-  #sidebar
-    :border-left solid 1px
-    :border-left-color = !lightgrey
-    +column(8, last)
-
-  #footer
-
-  form
-    +blueprint-form
-  
-    textarea
-      :width 100%
-
-    .big
-      :font-size 2em
-      :width 100%
+#adminlinks
+  +bar-delimited-list
 
   a
     +hover-link
-    
-    
-  //FLASHES
+    :font-size 0.8em
 
-  #flash_notice
-    +success
-
-  #flash_error
-    +error
-    
-    
-    
-    
-    
-    
-    
-    
-////////////////////////
-
-//
-  //General Styles
+#inactivepages
+  :font-size 0.8em
+  ul
+    +comma-delimited-list
   a
-    color: #0000FF
+    +hover-link
+    :color= !darkgrey
 
+#container
+  +column(18)
+  #content
+    +prepend(1)
+    +append(1)
+
+
+#sidebar
+  +column(4)
+  +prepend(1)
+  :padding-top= !line_height
+  :margin-top 0
+  :border-left solid 1px
+  :border-left-color = !lightgrey
+  
+  #login_box
+  p
+    :padding 0
+    :margin 0
+    form
+      +blueprint-form-borders
+      
+      #password-clear
+        :display none
+
+#footer
+  +prepend(2)
+  +append(2)
+  +column(20, "last")
+  :text-align center
+  :font-size 0.8em
+  hr
+    +colruler
+  ul
+    +bar-delimited-list
+
+// General Forms Styling
+form
+  +blueprint-form-borders
+  +blueprint-form-layout
+  p + p
+    :margin-top -1.5em
+
+  label
+    :float left
+    :width 25%
+    :margin-right 0.5em
+    :padding-top 0.2em
+    :text-align right
+  
+  fieldset.photo-edit
+    +column(15)
     img
-      border: none
-
-  //Product Box styles
-  .product_box
-    background-color: #CFC
-    border: solid 1px #6C6
-    padding: 0
-    margin: 10px 10px
-    width: 16%
-    height: 16%
-    float: left
-
-    p
-      text-align: center
-      display: block
-      margin-left: auto
-      margin-right: auto
-
-    a
-      text-decoration: none
-      color: #000
-      font-weight: bold
-
-
-
-//Errors
-
+      :border 1px solid #FFF
+      :border-color= !lightgrey
+      :vertical-align center
+        
+  //Form Error handling.
   .fieldWithErrors
-    display: inline
-
+    :display inline
+    input
+      +highlight
+  
   #errorExplanation
-    width: 50%
-    border: 1px solid #C66
-    padding: 0px
-    padding-bottom: 12px
-    margin-bottom: 20px
-    background-color: #FCC
-    color: #333
-    text-align: center
-
+    +error
     h2
-      display: none
+      :display none
+  
+//Flashes
+#flash_notice
+  +notice
+  +column(16)
+  +prepend(1)
+#flash_error
+  +error
+  +column(16)
+  +prepend(1)
+  
 
-    p
-      padding: 5px
+//Info Box & Product Box etc.
+.info_box
+  :border 1px solid #FFF
+  :border-color= !pink
+  :padding-top= !line_height
+  :margin-bottom= !line_height
 
-    ul
-      margin: 2px 24px
-      text-align: left
+  p
+    :margin-left= !blueprint_grid_width
+    :margin-right= !blueprint_grid_width
+    :color= !darkblue
+    :font-weight bold
+  a
+    :font-weight bold
+    :color= !pink
+  .big
+    :font-size 1.5em
+  .center
+    :text-align center
+    
+.product_box
+  +column(4)
+  :border 1px solid #FFF
+  :border-color= !medblue
+  :padding 0
+  :margin-bottom= !line_height/2
+  :background= (!pink + #888)
+  :text-align center
+  :height= (!line_height*7)
 
-      li
-        list-style: disc
-
-
-//Blog dates
-
-  .date
-    float: left
-    display: block
-    font-size: 11px
-    text-align: center
-    line-height: 45px
-    width: 32px
-    height: 45x
-    padding-right: 20px
-
-  .month-1
-    background: url(/images/jan.gif) no-repeat 0 0
-  .month-2                                      
-    background: url(/images/feb.gif) no-repeat 0 0
-  .month-3                                      
-    background: url(/images/mar.gif) no-repeat 0 0
-  .month-4                                      
-    background: url(/images/apr.gif) no-repeat 0 0
-  .month-5                                      
-    background: url(/images/may.gif) no-repeat 0 0
-  .month-6                                      
-    background: url(/images/jun.gif) no-repeat 0 0
-  .month-7                                      
-    background: url(/images/jul.gif) no-repeat 0 0
-  .month-8                                      
-    background: url(/images/aug.gif) no-repeat 0 0
-  .month-9                                      
-    background: url(/images/sep.gif) no-repeat 0 0
-  .month-10                                      
-    background: url(/images/oct.gif) no-repeat 0 0
-  .month-11                                      
-    background: url(/images/nov.gif) no-repeat 0 0
-  .month-12                                      
-    background: url(/images/dec.gif) no-repeat 0 0
+  a
+    +hover-link
+    :font-size 1.2em
+    :fontweight bold
+  img
+    :border 1px solid #FFF
+    :border-color= !lightgrey
+    

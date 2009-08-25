@@ -1,0 +1,94 @@
+/*
+Sass::SyntaxError: Undefined variable: "!line_height".
+on line 2 of /Users/danny/code/rails/rwp/app/stylesheets/pages/ethos.sass
+
+1: #ethospage
+2:   :margin-top= (2*!line_height)
+3:   .ethos_statement
+4:     h3
+5:       +caps
+6:     a.edit
+7:       +float-right
+8:   #tagline_1
+
+
+Backtrace:
+/Users/danny/code/rails/rwp/app/stylesheets/pages/ethos.sass:2
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/script/variable.rb:27:in `perform'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/script/operation.rb:36:in `perform'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/prop_node.rb:87:in `perform!'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:179:in `_perform'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:156:in `perform'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:200:in `perform_children'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:200:in `map'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:200:in `perform_children'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:191:in `perform!'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/rule_node.rb:156:in `perform!'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:179:in `_perform'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:156:in `perform'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:200:in `perform_children'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:200:in `map'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:200:in `perform_children'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:191:in `perform!'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:179:in `_perform'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:156:in `perform'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/tree/node.rb:103:in `render'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/plugin.rb:83:in `update_stylesheet'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/plugin.rb:69:in `update_stylesheets'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/plugin.rb:64:in `each'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/plugin.rb:64:in `update_stylesheets'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/plugin.rb:62:in `each'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/plugin.rb:62:in `update_stylesheets'
+/Users/danny/code/rails/rwp/vendor/gems/haml-2.2.1/lib/sass/plugin/rails.rb:16:in `process_without_compass'
+/Library/Ruby/Gems/1.8/gems/chriseppstein-compass-0.8.9/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/abstract_store.rb:122:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+./script/server:3
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Sass::SyntaxError: Undefined variable: \"!line_height\".\A on line 2 of /Users/danny/code/rails/rwp/app/stylesheets/pages/ethos.sass\A \A 1: #ethospage\A 2:   :margin-top= (2*!line_height)\A 3:   .ethos_statement\A 4:     h3\A 5:       +caps\A 6:     a.edit\A 7:       +float-right\A 8:   #tagline_1\A "; }

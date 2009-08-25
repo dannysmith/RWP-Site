@@ -1,9 +1,10 @@
 - title @category.name
-- if logged_in_as_admin?
-  = (link_to "Add Category", new_category_path) 
-  = (link_to "Add Product", new_product_path)
-  = link_to "Change Category Name", edit_category_path(@category)
-  = link_to "Destroy Category", @category, :confirm => 'Are you sure?', :method => :delete
+
+- content_for(:admin_links) do
+  %li= link_to "New Category", new_category_path
+  %li= link_to "New Product", new_product_path
+  %li= link_to "Edit Category", edit_category_path(@category)
+  %li= link_to "Destroy Category", @category, :confirm => 'Are you sure?', :method => :delete
 
 %p This will show the products in a category
 

@@ -26,5 +26,4 @@ class ApplicationController < ActionController::Base
     session[:cart] ||= Cart.new 
   end
 
-
 end

@@ -1,0 +1,47 @@
+.post
+  h1
+    +hover-link
+    :font-variant small-caps
+    :letter-spacing 1px
+    :text-transform lowercase
+    :font-size 3em
+    
+  #post-photo
+    +column(7)
+    img
+      +float-left
+  p.edit
+    +float-right
+  .date
+    +float-left
+    :margin-left= -!blueprint_grid_width - !blueprint_grid_margin
+    :width= !blueprint_grid_width
+    :height 2em
+    :padding 1em 0 0 0
+    :text-align center
+    :font-size 0.8em
+
+  .month1
+    :background url(/images/jan.gif) no-repeat 0 0
+  .month2
+    :background url(/images/feb.gif) no-repeat 0 0
+  .month3
+    :background url(/images/mar.gif) no-repeat 0 0
+  .month4
+    :background url(/images/apr.gif) no-repeat 0 0
+  .month5
+    :background url(/images/may.gif) no-repeat 0 0
+  .month6
+    :background url(/images/jun.gif) no-repeat 0 0
+  .month7
+    :background url(/images/jul.gif) no-repeat 0 0
+  .month8
+    :background url(/images/aug.gif) no-repeat 0 0
+  .month9
+    :background url(/images/sep.gif) no-repeat 0 0
+  .month10
+    :background url(/images/oct.gif) no-repeat 0 0
+  .month11
+    :background url(/images/nov.gif) no-repeat 0 0
+  .month12
+    :background url(/images/dec.gif) no-repeat 0 0

@@ -2,10 +2,9 @@
 %html
   %head
     %title
-      = h(yield(:title) || "Untitled")
+      = h(yield(:title) || "rwp - Real World Publishing")
 
     = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'partials/_base.css'
     = stylesheet_link_tag 'print.css', :media => 'print'
     
     /[if lt IE 8]
@@ -14,11 +13,9 @@
     %script{:type => "text/javascript", :src => "http://www.google.com/jsapi"}
     %script{:type => "text/javascript"}
       google.load("jquery", "1.3")
-      google.load("jquery-ui", "1.5.3")
     
     = javascript_include_tag "tiny_mce/jquery.tinymce"
     = javascript_include_tag "jquery.tablesorter.min"
-    = javascript_include_tag "ui.watermark.js"
     
     = javascript_include_tag "application"
     
@@ -27,7 +24,6 @@
   %body
     #wrapper
       #header
-        
         - if show_title?
           %h1
             = h(yield(:title))
@@ -37,13 +33,13 @@
           -# Standard Links
           %li= link_to "Home", :root
           %li= link_to "Products", :products
-          %li= link_to "Cart", :cart unless logged_in_as_admin?
+          %li= link_to "Cart", :cart #unless logged_in_as_admin? TODO
           %li= link_to "Blog", :blog if $site.display_blog?
           %li= link_to "Ethos", :ethos
         
           -# Pages Links
           - $site.active_pages.each do |page|
-            %li= link_to page.name.capitalize, page.name
+            %li= link_to page.name.capitalize, "/#{page.name}"
           
           -# Account Managment Links  
           - if logged_in?
@@ -59,12 +55,15 @@
             %li= link_to "Users", :users
             %li= link_to "Edit CSS"
             %li= link_to "Site Settings", :settings
+            = yield(:admin_links)
           
           -if $site.inactive_pages.size > 0
-            %span Inactive Pages:
-            %ul#inactivepages
-              - $site.inactive_pages.each do |page|
-                = link_to page.name.capitalize, page.name
+            %br
+            #inactivepages
+              %span Inactive Pages:
+              %ul
+                - $site.inactive_pages.each do |page|
+                  = link_to page.name.capitalize, "/#{page.name}"
           
       #container
         - flash.each do |name, msg|
@@ -72,24 +71,27 @@
         #content
           = yield
       #sidebar
-      
         #login_box
           - form_tag sessions_path do
-            = text_field_tag :login, params[:login], :title => "email"
-            = password_field_tag :password
+            = text_field_tag :login, params[:login], :title => "email", :class => :text, :value => "email"
+            %input#password.text{:type => :password, :name => :password}
+            %input#password-clear.text{:type => :text, :value => "password"}
             = submit_tag "Log in"
-          = link_to "Sign up!", signup_path, :class => :small
+            or 
+            = link_to "Sign up", signup_path
+            
+        #offer_box
+          -for product in $site.offer_products
+            - if !product.disabled
+              .product_box
+                %p= link_to h(product.name), product
+                %p= link_to image_tag(product.photo.url(:thumb)), product
 
-
-      /.clear
       #footer
-        %p.small
-          &copy; Copyright #{Time.now.year} RWP Group. All Rights Reserved
-          |
-          Registered in Englad & Wales No. 03793616
-          |
-          VAT No. 619 5985 83
-          |
-          =link_to "Privacy Policy", :controller => :welcome, :action => :privacy
-          |
-          =link_to "Contact"
+        %hr
+        %ul
+          %li &copy; Copyright #{Time.now.year} RWP Group. All Rights Reserved
+          %li Registered in Englad & Wales No. 03793616
+          %li VAT No. 619 5985 83
+          %li= link_to "Privacy Policy", :controller => :welcome, :action => :privacy
+          %li= link_to "Contact"

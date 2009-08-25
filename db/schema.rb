@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090731124218) do
+ActiveRecord::Schema.define(:version => 20090825101433) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -83,6 +83,9 @@ ActiveRecord::Schema.define(:version => 20090731124218) do
     t.datetime "updated_at"
     t.text     "rss_message"
     t.text     "new_user_message"
+    t.integer  "offer_product_1_id"
+    t.integer  "offer_product_2_id"
+    t.integer  "offer_product_3_id"
   end
 
   create_table "states", :force => true do |t|

@@ -1,15 +1,15 @@
-- title @product.name
--if logged_in_as_admin?
-  .small
-    = link_to "Edit Product", edit_product_path(@product)
-    = link_to "Destroy", @product, :confirm => 'Are you sure?', :method => :delete
-#product-photo
-  = image_tag @product.photo.url(:normal)
-%p
-  = sanitize @product.description
-%p
-  - form_tag "add_to_cart/#{@product.id}", :action => :add_to_cart do
-    = hidden_field_tag(:price, @product.offer_price ||= 500)
-    = submit_tag "Add to Cart"
-    
-/  = button_to "Add to Cart", :action => :add_to_cart, :id => @product
+- title "Products"
+#productpage
+  -if logged_in_as_admin?
+    %p.edit
+      = link_to "Edit Product", edit_product_path(@product)
+      = link_to "Destroy", @product, :confirm => 'Are you sure?', :method => :delete
+  #product-photo
+    = image_tag @product.photo.url(:normal)
+  %h2= @product.name
+  %p.description
+    = sanitize @product.description
+  %p
+    - form_tag "add_to_cart/#{@product.id}", :action => :add_to_cart do
+      = hidden_field_tag(:price, @product.offer_price ||= 500)
+      = submit_tag "Add to Cart"

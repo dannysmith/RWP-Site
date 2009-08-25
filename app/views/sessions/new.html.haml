@@ -1,16 +1,21 @@
 - title "Log in"
-%p
-  Don't have an account?
-  = link_to "Sign up!", signup_path
 
-- form_tag sessions_path do
+#login_form
+  - form_tag sessions_path do
+    %fieldset
+      %legend Log in
+      %p
+        = label_tag :login, "Email"
+        = text_field_tag :login, params[:login], :class => :text
+      %p
+        = label_tag :password
+        %input#password.text{:type => :password, :name => "password"}
+      %br
+      = submit_tag "Log in"
+      
+#signup
   %p
-    = label_tag :login, "Username or Email Address"
+    %span.caps or
     %br
-    = text_field_tag :login, params[:login]
-  %p
-    = label_tag :password
-    %br
-    = password_field_tag :password
-  %p
-  = submit_tag "Log in"
+    %a{:href => "/signup"} Sign up <span class="alt">&amp;</span> get started!
+
