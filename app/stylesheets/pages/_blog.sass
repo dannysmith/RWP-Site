@@ -10,8 +10,6 @@
     +column(7)
     img
       +float-left
-  p.edit
-    +float-right
   .date
     +float-left
     :margin-left= -!blueprint_grid_width - !blueprint_grid_margin
@@ -45,3 +43,24 @@
     :background url(/images/nov.gif) no-repeat 0 0
   .month12
     :background url(/images/dec.gif) no-repeat 0 0
+    
+  //Comments style
+#post-comments
+  h4
+    :font-size 1.2em
+  .comment
+    :border 1px solid #FFF
+    :border-color= !pink
+    :padding-top= !line_height
+    :margin-bottom= !line_height
+
+    p
+      :margin-left= !blueprint_grid_width
+      :margin-right= !blueprint_grid_width
+      :color= !darkblue
+    a
+      :font-weight bold
+      :color= !pink
+    .delete
+      +float-right
+    

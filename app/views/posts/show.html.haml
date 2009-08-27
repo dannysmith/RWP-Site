@@ -9,3 +9,38 @@
   #post-photo
     = image_tag @post.photo.url(:normal)
   %p= sanitize @post.body
+  
+  
+  #post-comments
+    %h4
+      Comments 
+      = "(#{@post.comments.count})"
+    - @post.comments.each do |c|
+      .comment
+        - if logged_in_as_admin?
+          %span.delete= link_to "Delete", c, :confirm => 'Are you sure?', :method => :delete
+        %p
+          %strong #{h c.author}
+          (#{time_ago_in_words(c.created_at)} ago)
+        %p= h c.text
+
+  -if logged_in?
+    #comment-form
+      - #@product.comments.build if @product.comments.empty?
+      - form_for ([@post, Comment.new]) do |f|
+        = f.error_messages
+        %p
+          = f.label :author, "Your Name"
+          = f.text_field :author, :value => current_user.name
+        %p
+          = f.label :text, "Your Comment"
+          = f.text_area :text
+        %p
+          = f.submit "Submit"
+  - else
+    %p You must be logged in to post a comment.
+    %p.big
+      =link_to "Log in", login_path
+      or
+      =link_to "sign up", signup_path
+      to leave a comment.

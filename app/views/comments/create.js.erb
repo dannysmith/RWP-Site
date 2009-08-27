@@ -1,0 +1,4 @@
+$("#comment-form").before('<div id="flash_notice"><%= escape_javascript(flash.delete(:notice)) %></div>')
+$("#flash_notice").pause(1000).fadeOut('slow');
+$("#post-comments").append($("<div class ='comment'><p><strong><%= escape_javascript(@comment.author) %></strong> (<%= time_ago_in_words(@comment.created_at) %> ago)</p><p><%= escape_javascript(@comment.text) %></p></div>").fadeIn('slow'));
+$("#new_comment")[0].reset();

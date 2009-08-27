@@ -31,18 +31,31 @@ body
   +container
   :margin 0 auto
   //:padding 10px
-  :background-color= !white
-  :border solid 1px #ccc
-  :border-color= !lightgrey
   :text-align left
+  :background url(/images/header.png) no-repeat 0 0
+  :background-color= !white
   
 #header
   +column(24)
-  +pad
-  h1
-    :size 3em
-    +pad(2)
+  
+  h2
+    :size 2em
+    +float-left
+    :color= !white
+    +prepend(3)
+    :margin-top= 3*!line_height
     
+  .phone
+    +float-right
+    
+    p
+      :size 2em
+      :color= !pink
+      
+    p:first
+      :color= !white
+      :size 1em
+      
 #navlinks
   +bar-delimited-list
   +float-right
@@ -54,10 +67,11 @@ body
     
 #adminlinks
   +bar-delimited-list
-
+  :color= !white
   a
     +hover-link
     :font-size 0.8em
+    :color= !white
 
 #inactivepages
   :font-size 0.8em
@@ -183,4 +197,8 @@ form
   img
     :border 1px solid #FFF
     :border-color= !lightgrey
-    
+
+
+///////////
+p.edit
+  +float-right

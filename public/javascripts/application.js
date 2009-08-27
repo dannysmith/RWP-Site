@@ -3,6 +3,12 @@
 
 $().ready(function() {
   
+  //Define Pause function.
+  $.fn.pause = function(duration) {
+      $(this).animate({ dummy: 1 }, duration);
+      return this;
+  };
+  
   //Switches out the password and email fields in the sidebar so that their contents dissapears when clicked.
   
   $('#password-clear').show();
@@ -32,9 +38,31 @@ $().ready(function() {
       }
   });
   
-  
-  
-  
+  //Updates slug for pages as user types in title for page editing.
+
+  $('#page_title').keyup(function() {
+    var slugcontent = $(this).val();
+    
+    var slugcontent_hyphens = slugcontent.replace(/\s/g,'-');
+    var finishedslug = slugcontent_hyphens.replace(/[^a-zA-Z0-9\-]/g,'');
+    
+    $('#page_name').val(finishedslug.toLowerCase());
+  });
+
+ /* 
+  jQuery.ajaxSetup({
+    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+  })
+*/
+
+
+  //Sends new comment through AJAX.
+  $(document).ready(function() {
+    $("#new_comment").submit(function() {
+      $.post($(this).attr("action"), $(this).serialize(), null, "script");
+      return false;
+    })
+  })
   
   
   

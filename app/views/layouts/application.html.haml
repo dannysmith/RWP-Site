@@ -25,9 +25,13 @@
     #wrapper
       #header
         - if show_title?
-          %h1
+          %h2
             = h(yield(:title))
-            
+        .phone
+          %p For a quote, call us on
+          %p= CONTACT_PHONE
+        .clear
+        
         %ul#navlinks
         
           -# Standard Links
@@ -39,7 +43,7 @@
         
           -# Pages Links
           - $site.active_pages.each do |page|
-            %li= link_to page.name.capitalize, "/#{page.name}"
+            %li= link_to page.title.titleize, "/#{page.name}"
           
           -# Account Managment Links  
           - if logged_in?
@@ -47,8 +51,7 @@
             %li= link_to "Logout", :logout
             %li= link_to "Account", :account
           -else
-            %li= link_to "Log In", :login
-            
+          %li= link_to "Contact", :contact
 
         - if logged_in_as_admin?
           %ul#adminlinks
@@ -65,9 +68,11 @@
                 - $site.inactive_pages.each do |page|
                   = link_to page.name.capitalize, "/#{page.name}"
           
+          
       #container
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
+        = breadcrumbs
         #content
           = yield
       #sidebar

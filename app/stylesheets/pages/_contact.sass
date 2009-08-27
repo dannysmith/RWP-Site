@@ -1,0 +1,26 @@
+.vcard
+  span.type
+    :display none
+  span
+    :font-weight bold
+  
+  h5:first
+    +column(8)
+  #email
+    +column(4)
+  #email-addresses
+    +column(5)
+  #phone
+    +column(6)
+    :font-size 1.3em
+    
+  iframe
+    :border 1px solid #FFF
+    :border-color= !lightgrey
+    
+  address
+    p
+      :margin 0
+      :padding 0
+  a.url
+    :display none

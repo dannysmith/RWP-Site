@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.blog 'blog.:format', :controller => 'posts'
   map.ethos 'ethos', :controller => 'taglines'
   map.settings 'settings', :controller => 'site', :action => 'index'
+  map.contact 'contact', :controller => 'welcome', :action => 'contact'
   
   #Map resourcse
   map.resources :site, :only => [:index, :edit, :update]
@@ -20,9 +21,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :products
   map.resources :categories, :has_many => :products
   map.resources :users, :has_many => :orders
-  map.resources :posts
+  map.resources :posts, :has_many => :comments
   map.resources :orders
   map.resources :pages
+  map.resources :comments
 
  
   #Map default routes

@@ -1,0 +1,23 @@
+- title "Edit Page"
+
+- form_for @page do |f|
+
+  = f.error_messages
+  %p
+    = f.text_field :title, :class => :title
+  
+
+  %p.small Enter the desired url slug below, for example, entering "contact" here would produce a url of http://rwpgroup.com/contact.
+  %p
+    = f.text_field :name, :class => :text
+  %p
+    = f.label :disabled, "Disable this Page?"
+    = f.check_box :disabled
+  %p
+    = f.text_area :content, :class => "tinymce"
+
+  %p
+    = f.submit "Save your changes!"
+
+
+

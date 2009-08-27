@@ -1,6 +1,8 @@
 - title @page.title
 
+-content_for(:admin_links) do
+  %li= link_to "Edit this Page", "/#{@page.name}/edit"
+  
 %div{:class => @page.name}
   = @page.content
-  
-%p.small= link_to "Edit", "/#{@page.name}/edit" if logged_in_as_admin?
+

@@ -6,8 +6,6 @@
   %li= link_to "Edit Category", edit_category_path(@category)
   %li= link_to "Destroy Category", @category, :confirm => 'Are you sure?', :method => :delete
 
-%p This will show the products in a category
-
 -for product in @category.products
   - if !product.disabled || logged_in_as_admin?
     .product_box

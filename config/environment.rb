@@ -5,6 +5,8 @@ RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 
 #Specifies and Admin Email for the site
 ADMIN_EMAIL = 'danny@dasmith.co.uk'
+CONTACT_PHONE = '+44 (0)845 450 6605'
+CONTACT_FAX = '+44 (0)845 450 6606'
 
 #Specifies the Root URL or the app
 ROOT_URL = 'http://localhost:3000'
