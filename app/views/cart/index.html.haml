@@ -2,6 +2,9 @@
 
 = render :partial => 'carttable'
 
-= button_to 'Empty cart', :action => 'empty_cart'
+.confirm
+  = button_to 'Empty cart', :class => 'confirm'
+
 = button_to 'Send this Order', :action => 'confirm'
+
 %p.small When you click "send this order", you'll be directed to a page where you can confirm your choices. After that, we'll process the order and call or email you to discuss the details. You don't have to pay anything at this point and we won't ask for your card details until we've spoken to you.

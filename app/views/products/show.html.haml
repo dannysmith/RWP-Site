@@ -10,6 +10,13 @@
   %p.description
     = sanitize @product.description
   %p
+    - form_for :product, :url => { :action => :add_to_cart } do |f|
+      = f.collection_select :offer_price, @product.price_options.find(:all), :id, :price_and_name
+      = f.hidden_field :id
+      = submit_bit f, "Add to Cart"
+  
+  /
     - form_tag "add_to_cart/#{@product.id}", :action => :add_to_cart do
-      = hidden_field_tag(:price, @product.offer_price ||= 500)
+      -# hidden_field_tag(:price, @product.offer_price ||= 500)
+      = select :price, @product.price_options.find(:all), :prompt => "Select a Collection..."
       = submit_tag "Add to Cart"

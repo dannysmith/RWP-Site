@@ -13,7 +13,7 @@ class CartController < ApplicationController
   
   def confirm
     if find_cart.items.empty?
-      flash[:notice] = "Your cart is currently empty" 
+      flash[:notice] = "Your cart is currently empty!" 
       redirect_to :back
     end
     

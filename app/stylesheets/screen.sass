@@ -67,11 +67,11 @@ body
     
 #adminlinks
   +bar-delimited-list
-  :color= !white
+  :color= !pink
   a
     +hover-link
     :font-size 0.8em
-    :color= !white
+    :color= !pink
 
 #inactivepages
   :font-size 0.8em
@@ -183,10 +183,10 @@ form
 .product_box
   +column(4)
   :border 1px solid #FFF
-  :border-color= !medblue
+  :border-color= !pink
   :padding 0
   :margin-bottom= !line_height/2
-  :background= (!pink + #888)
+  :background #eee
   :text-align center
   :height= (!line_height*7)
 
@@ -202,3 +202,9 @@ form
 ///////////
 p.edit
   +float-right
+  
+.spinner
+  img
+    :width 1.5em
+    :height 1.5em
+    :padding-left 1em

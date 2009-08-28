@@ -5,7 +5,10 @@ class Category < ActiveRecord::Base
   
   #Returns the first six products in a category.
   def products_for_home
-    self.products.find(:all, :order => 'RANDOM()', :limit => 6, :conditions => {:disabled => false})
+    self.products.find( :all,
+                        :order      => 'RANDOM()', 
+                        :limit      => 6, 
+                        :conditions => {:disabled => false})
   end
 
 end

@@ -17,5 +17,14 @@
     = f.collection_select :category_id, Category.find(:all), :id, :name, :prompt => "Choose a category..."
     = f.label :description, "Product Description"
     = f.text_area :description, :class => "tinymce"
-
-    = f.submit "Create Product Record"
+    %fieldset.photo-edit
+      %legend Product Options
+      %table
+        %thead
+          %th Option
+          %th Price
+          %th
+        %tbody
+          - f.fields_for :price_options do |fp|
+            = render :partial => 'price_option', :locals => { :form => fp }
+    = submit_bit f, "Create Product Record"

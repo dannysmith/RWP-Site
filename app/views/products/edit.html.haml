@@ -2,6 +2,7 @@
 
 #editproductpage
   - form_for @product, :html => { :multipart => true } do |f|
+
     = f.error_messages
 
     = f.label :name
@@ -18,5 +19,16 @@
       %legend= "Photo of #{@product.name}"
       = image_tag @product.photo.url(:thumb) if @product.photo?
       = f.file_field :photo
+    %fieldset.photo-edit
+      %legend Product Options
+      %table
+        %thead
+          %th Option
+          %th Price
+          %th Delete
+        %tbody
+          - f.fields_for :price_options do |fp|
+            = render :partial => 'price_option', :locals => { :form => fp }
+     
       
-    = f.submit "Save Changes"
+    = submit_bit f, "Save Changes"

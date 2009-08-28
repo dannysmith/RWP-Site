@@ -12,4 +12,4 @@
     = image_tag @post.photo.url(:thumb) if @post.photo?
     = f.file_field :photo
     
-  = f.submit "Save Changes"
+  = submit_bit f,  "Save Changes"

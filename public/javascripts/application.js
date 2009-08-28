@@ -49,29 +49,28 @@ $().ready(function() {
     $('#page_name').val(finishedslug.toLowerCase());
   });
 
- /* 
-  jQuery.ajaxSetup({
-    'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-  })
-*/
-
-
   //Sends new comment through AJAX.
-  $(document).ready(function() {
     $("#new_comment").submit(function() {
       $.post($(this).attr("action"), $(this).serialize(), null, "script");
       return false;
     })
+  
+  
+  //Deals with Spinner in submit_bit.
+  $(".spinner img").hide();
+  
+  $(".spinner input").click(function() {
+    $(this).val("Saving...");
+    $(this).attr("disabled", "true");
+    $(".spinner img").show();
+   $(this).parents('form').submit();
   })
   
-  
-  
-  
-  
-  
-  
-  
-  
+  //Deals with Confirming deletes and what-not
+  $('.confirm form').submit(function(){
+    var answer = confirm('Are you sure?');
+    return answer;
+  })
   
   
   $('table.tablesorter').tablesorter();

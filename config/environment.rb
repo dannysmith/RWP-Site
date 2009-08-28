@@ -8,8 +8,12 @@ ADMIN_EMAIL = 'danny@dasmith.co.uk'
 CONTACT_PHONE = '+44 (0)845 450 6605'
 CONTACT_FAX = '+44 (0)845 450 6606'
 
-#Specifies the Root URL or the app
+#Specifies the Root URL or the app and a rails_root
 ROOT_URL = 'http://localhost:3000'
+RAILS_ROOT = "#{File.dirname(__FILE__)}/.." unless defined?(RAILS_ROOT)
+
+#Required fixnum monkry patch to use to_currency in models.
+require "#{RAILS_ROOT}/lib/core_extensions/float_extensions"
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')

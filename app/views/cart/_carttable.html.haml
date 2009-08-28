@@ -2,11 +2,13 @@
   %thead
     %th Item
     %th Price
+    %th Option
   %tbody
     - for item in @cart.items
       %tr
         %td= h item.name
         %td= to_price(item.price)
+        %td= h item.option
     %tr.lastline
       %td Total:
       %td= to_price(@cart.total_price)

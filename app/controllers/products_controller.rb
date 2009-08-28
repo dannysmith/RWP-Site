@@ -14,6 +14,10 @@ class ProductsController < ApplicationController
   
   def new
     @product = Product.new
+    @product.price_options.build(:option => "Standard")
+    5.times do
+      @product.price_options.build
+    end
   end
   
   def create
@@ -28,6 +32,9 @@ class ProductsController < ApplicationController
   
   def edit
     @product = Product.find(params[:id])
+    5.times do
+      @product.price_options.build
+    end
   end
   
   def update
@@ -49,12 +56,12 @@ class ProductsController < ApplicationController
   
   #Adds the product to the current cart.
   def add_to_cart
-    product = Product.find(params[:id])
-    cart_item = CartItem.new(product, params[:price])
+    product = Product.find(params[:product][:id])
+    cart_item = CartItem.new(product, product.price_options.find(params[:product][:offer_price]))
     @cart = find_cart
     @cart.add_product(cart_item)
-    flash[:notice] = "#{cart_item.product.name} has been added to your cart."
-    #Update the shopping cart total shown on the right here!
+    flash[:notice] = "#{cart_item.name} has been added to your cart."
+    #Update the shopping cart total shown on the right here! TODO
     redirect_to product
   rescue ActiveRecord::RecordNotFound 
     invalid_product_call "Invalid product code! You can't ad this to the cart!"

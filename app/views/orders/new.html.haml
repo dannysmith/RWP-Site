@@ -10,4 +10,4 @@
     = f.label :user_id, "Client"
     = f.select(:user_id, User.all.map {|u| ["#{u.first_name} #{u.surname} (#{u.company_name})", u.id]}, :prompt => "Select a Client...")
   %p
-    = f.submit "Create Order"
+    = submit_bit f, "Create Order"

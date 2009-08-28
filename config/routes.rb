@@ -18,15 +18,17 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :site, :only => [:index, :edit, :update]
   map.resources :taglines, :only => [:index, :edit, :update]
   map.resources :sessions, :only => [:create, :destroy]
-  map.resources :products
   map.resources :categories, :has_many => :products
   map.resources :users, :has_many => :orders
   map.resources :posts, :has_many => :comments
   map.resources :orders
   map.resources :pages
   map.resources :comments
-
  
+  map.resources :products do |product|
+    product.delete_price_option 'delete_price_options',:controller => 'product', :action => 'destroy_price_option'
+  end
+  
   #Map default routes
   map.connect ':name', :controller => 'pages', :action => 'show'
   map.connect ':name/edit', :controller => 'pages', :action => 'edit'

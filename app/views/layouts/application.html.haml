@@ -18,7 +18,7 @@
     = javascript_include_tag "jquery.tablesorter.min"
     
     = javascript_include_tag "application"
-    
+
     = yield(:head)
     
   %body
@@ -76,14 +76,15 @@
         #content
           = yield
       #sidebar
-        #login_box
-          - form_tag sessions_path do
-            = text_field_tag :login, params[:login], :title => "email", :class => :text, :value => "email"
-            %input#password.text{:type => :password, :name => :password}
-            %input#password-clear.text{:type => :text, :value => "password"}
-            = submit_tag "Log in"
-            or 
-            = link_to "Sign up", signup_path
+        - unless logged_in?
+          #login_box
+            - form_tag sessions_path do
+              = text_field_tag :login, params[:login], :title => "email", :class => :text, :value => "email"
+              %input#password.text{:type => :password, :name => :password}
+              %input#password-clear.text{:type => :text, :value => "password"}
+              = submit_tag "Log in"
+              or 
+              = link_to "Sign up", signup_path
             
         #offer_box
           -for product in $site.offer_products

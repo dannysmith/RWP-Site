@@ -1,0 +1,6 @@
+%tr
+  %td= form.text_field :option
+  %td= form.text_field :price
+  %td
+    - unless form.object.new_record?
+      = form.check_box :_delete
